@@ -1,4 +1,4 @@
-# Drupal Translations Download
+# Drupal Translations Update /Download
 
 ## The problem
 As of July 2012, Drupal (up to v7) can't handle proxy : <http://drupal.org/node/7881>. This is a big problem, especially when trying to update/fetch module translations (`l10n_update` module) through a proxy.
