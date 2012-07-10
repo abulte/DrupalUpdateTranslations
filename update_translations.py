@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from pprint import pprint
 import os, sys, subprocess, urllib2, logging
 from urllib2 import Request, urlopen, URLError, HTTPError
