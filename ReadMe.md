@@ -12,7 +12,7 @@ As of July 2012, Drupal (up to v7) can't handle proxy : <http://drupal.org/node/
 ## Requirements
 * `Drush` (to get the list of enabled modules)
 * `Python` (script was built on 2.7, tested on 2.6)
-* Modules should be in `sites/all/modules/\*` or in `site/all/modules/contrib/\*`
+* Modules should be in `sites/all/modules/*` or in `site/all/modules/contrib/*`
 
 
 ## How to
