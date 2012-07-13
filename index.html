@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="DrupalUpdateTranslations : Drupal Download and Update Translations (through proxy) script" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>DrupalUpdateTranslations</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/abulte/DrupalUpdateTranslations">View on GitHub</a>
+
+          <h1 id="project_title">DrupalUpdateTranslations</h1>
+          <h2 id="project_tagline">Drupal Download and Update Translations (through proxy) script</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/abulte/DrupalUpdateTranslations/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/abulte/DrupalUpdateTranslations/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>The problem</h2>
+
+<p>As of July 2012, Drupal (up to v7) can't handle proxy : <a href="http://drupal.org/node/7881">http://drupal.org/node/7881</a>. This is a big problem, especially when trying to update/fetch module translations (<code>l10n_update</code> module) through a proxy.</p>
+
+<h2>The solution</h2>
+
+<p><strong>This is not a solution</strong>, this is pretty much an ugly and limited workaround. For a solution, watch for Drupal 8 or issue #7881 commit in Drupal 7.</p>
+
+<h2>The script</h2>
+
+<p><code>updated_translations.py</code> lets you download your enabled modules translations into the <code>translations</code> subdirectory of the modules. It also works with core and downloads its translation in <code>profiles/standard/translations</code>.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>
+<code>Drush</code> (to get the list of enabled modules)</li>
+<li>
+<code>Python</code> (script was built on 2.7, tested on 2.6)</li>
+<li>Modules should be in <code>sites/all/modules/*</code> or in <code>site/all/modules/contrib/*</code>
+</li>
+</ul><h2>How to</h2>
+
+<ul>
+<li>Place the <code>updated_translations.py</code> script wherever you want</li>
+<li>Edit the following variables :
+
+<ul>
+<li>DRUPAL_ROOT : root of your Drupal installation</li>
+<li>DRUSH_PATH : complete path to Drush binary</li>
+<li>BASE_TRANSLATION_URL : this should be OK as is</li>
+<li>CORE_VERSION : your Drupal Core version</li>
+<li>LANGUAGE_CODE : your language code</li>
+</ul>
+</li>
+<li>Ensure your system is configured to use your proxy (urllib2 auto detects it), for example by setting the <code>http_proxy</code>variable</li>
+<li>Run the script as Web server user (root is OK too but not recommended), or at least with a user with write access in the modules directories : <code>python update_translations.py</code>
+</li>
+<li>In Drupal, delete the language you want to update (<strong>WARNING</strong> : this will erase your custom translations strings!!) and add it again so the translations files get fed into the system</li>
+</ul><h2>Improve</h2>
+
+<p>Feel free to propose improvements, Github is made for this! This script is just a quick workaround (and intended so) for now.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">DrupalUpdateTranslations maintained by <a href="https://github.com/abulte">abulte</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
